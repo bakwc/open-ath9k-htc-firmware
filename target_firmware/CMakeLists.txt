@@ -60,6 +60,8 @@ ADD_DEFINITIONS(
 	-DATH_ENABLE_CABQ
 )
 
+SET(TARGET_K2 1)
+
 SET(SOURCES
 	magpie_fw_dev/target/init/app_start.c
 	magpie_fw_dev/target/init/init.c

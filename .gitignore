@@ -1,1 +1,5 @@
 /toolchain
+.DS_Store
+target_firmware/.idea/
+target_firmware/cmake-build-debug/
+
