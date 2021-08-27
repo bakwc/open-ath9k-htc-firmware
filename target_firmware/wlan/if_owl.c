@@ -960,6 +960,8 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 	a_int32_t shortPreamble = 0;
 	a_int32_t isProbe = 0;
 
+    return;
+
 	adf_os_mem_set(rcs, 0, sizeof(struct ath_rc_series)*4 );
 	adf_os_mem_set(mrcs, 0, sizeof(struct ath_rc_series)*4 );
 
@@ -1072,7 +1074,7 @@ ath_tgt_send_mgt(struct ath_softc_tgt *sc,adf_nbuf_t hdr_buf, adf_nbuf_t skb,
 	HAL_11N_RATE_SERIES series[4];
 	ath_mgt_hdr_t *mh;
 	a_int8_t keyix;
-	
+
 	return;
 
 
