@@ -968,10 +968,10 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 				      0, 0, 0, 0, 0,
 				      rcs, &isProbe);
 
-        rcs[0].rix = 22;
-        rcs[1].rix = 26;
-        mrcs[2].rix = 27;
-        mrcs[3].rix = 27;
+        rcs[0].rix = 25;
+        rcs[1].rix = 27;
+        mrcs[2].rix = 29;
+        mrcs[3].rix = 29;
 
 		ath_hal_memcpy(bf->bf_rcs, rcs, sizeof(rcs));
 	} else {
@@ -985,10 +985,10 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 		mrcs[0].tries = 1;
 		mrcs[0].flags = 0;
 
-        mrcs[0].rix = 22;
-        mrcs[1].rix = 26;
-        mrcs[2].rix = 27;
-        mrcs[3].rix = 27;
+        mrcs[0].rix = 25;
+        mrcs[1].rix = 27;
+        mrcs[2].rix = 29;
+        mrcs[3].rix = 29;
 
 		ath_hal_memcpy(bf->bf_rcs, mrcs, sizeof(mrcs));
 	}
