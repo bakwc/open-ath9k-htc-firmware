@@ -439,6 +439,8 @@ static void ath_buf_set_rate(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 
 	    if (bf->bf_rcs[i].flags & ATH_RC_DS_FLAG)
 		    series[i].RateFlags |= HAL_RATESERIES_RTS_CTS;
+
+	    series[i].RateFlags |= HAL_RATESERIES_HALFGI;
     }
 
     rtsctsrate = rt->info[cix].rateCode |
