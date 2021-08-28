@@ -963,25 +963,29 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 	adf_os_mem_set(rcs, 0, sizeof(struct ath_rc_series)*4 );
 	adf_os_mem_set(mrcs, 0, sizeof(struct ath_rc_series)*4 );
 
-	if (!bf->bf_ismcast) {
-		ath_tgt_rate_findrate(sc, an, shortPreamble,
-				      0, 0, 0, 0, 0,
-				      rcs, &isProbe);
+//	if (!bf->bf_ismcast) {
+//		ath_tgt_rate_findrate(sc, an, shortPreamble,
+//				      0, 0, 0, 0, 0,
+//				      rcs, &isProbe);
+//
+//        rcs[1].tries = rcs[2].tries = mrcs[3].tries = 0;
+//        rcs[0].rix = 23;
+//        rcs[1].rix = 23;
+//        rcs[2].rix = 23;
+//        rcs[3].rix = 23;
+//
+//		ath_hal_memcpy(bf->bf_rcs, rcs, sizeof(rcs));
+//	} else
 
-        rcs[0].rix = 23;
-        rcs[1].rix = 23;
-        mrcs[2].rix = 23;
-        mrcs[3].rix = 23;
-
-		ath_hal_memcpy(bf->bf_rcs, rcs, sizeof(rcs));
-	} else {
+	{
 		struct ath_vap_target *avp;
 
 		avp = &sc->sc_vap[bf->vap_index];
 
 		mrcs[1].tries = mrcs[2].tries = mrcs[3].tries = 0;
-		mrcs[1].rix = mrcs[2].rix = mrcs[3].rix = 0;
-		mrcs[0].rix = ath_get_minrateidx(sc, avp);
+//		mrcs[1].rix = mrcs[2].rix = mrcs[3].rix = 0;
+//		mrcs[0].rix = ath_get_minrateidx(sc, avp);
+
 		mrcs[0].tries = 1;
 		mrcs[0].flags = 0;
 
@@ -992,6 +996,8 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 
 		ath_hal_memcpy(bf->bf_rcs, mrcs, sizeof(mrcs));
 	}
+
+    bf->bf_flags |= HAL_TXDESC_NOACK;
 
 	ath_buf_set_rate(sc, bf);
 	bf->bf_txq_add(sc, bf);
