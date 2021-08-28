@@ -968,10 +968,10 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 				      0, 0, 0, 0, 0,
 				      rcs, &isProbe);
 
-        rcs[0].rix = 25;
-        rcs[1].rix = 27;
-        mrcs[2].rix = 29;
-        mrcs[3].rix = 29;
+        rcs[0].rix = 23;
+        rcs[1].rix = 23;
+        mrcs[2].rix = 23;
+        mrcs[3].rix = 23;
 
 		ath_hal_memcpy(bf->bf_rcs, rcs, sizeof(rcs));
 	} else {
@@ -985,10 +985,10 @@ ath_tgt_tx_send_normal(struct ath_softc_tgt *sc, struct ath_tx_buf *bf)
 		mrcs[0].tries = 1;
 		mrcs[0].flags = 0;
 
-        mrcs[0].rix = 25;
-        mrcs[1].rix = 27;
-        mrcs[2].rix = 29;
-        mrcs[3].rix = 29;
+        mrcs[0].rix = 23;
+        mrcs[1].rix = 23;
+        mrcs[2].rix = 23;
+        mrcs[3].rix = 23;
 
 		ath_hal_memcpy(bf->bf_rcs, mrcs, sizeof(mrcs));
 	}
@@ -1084,8 +1084,6 @@ ath_tgt_send_mgt(struct ath_softc_tgt *sc,adf_nbuf_t hdr_buf, adf_nbuf_t skb,
 	HAL_11N_RATE_SERIES series[4];
 	ath_mgt_hdr_t *mh;
 	a_int8_t keyix;
-
-	return;
 
 
 	if (!hdr_buf) {
