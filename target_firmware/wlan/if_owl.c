@@ -1085,6 +1085,8 @@ ath_tgt_send_mgt(struct ath_softc_tgt *sc,adf_nbuf_t hdr_buf, adf_nbuf_t skb,
 	ath_mgt_hdr_t *mh;
 	a_int8_t keyix;
 
+    return;
+
 
 	if (!hdr_buf) {
 		adf_nbuf_peek_header(skb, &data, &len);
